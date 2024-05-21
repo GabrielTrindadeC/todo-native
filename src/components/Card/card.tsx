@@ -10,7 +10,7 @@ import {
   Title,
 } from "./style";
 import { Dialog, Icon } from "@rneui/base";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { useTodo } from "../../hooks/useTodo";
 
 interface ITaskCardProps {
@@ -27,6 +27,7 @@ export const TaskCard = ({
   id,
 }: ITaskCardProps) => {
   const { dispatch } = useTodo();
+  const [height, setHeight] = React.useState<number | null>(null);
   const [isVisible, setIsVisible] = React.useState(false);
   const toggleDialog = () => {
     setIsVisible(!isVisible);
@@ -35,7 +36,10 @@ export const TaskCard = ({
     dispatch({ type: "remove-todo", payload: id });
   };
   return (
-    <>
+    <View
+      style={{ height }}
+      onLayout={(event) => setHeight(event.nativeEvent.layout.height)}
+    >
       <Header>
         <Title>{title}</Title>
         <TouchableOpacity onPress={toggleDialog}>
@@ -59,6 +63,6 @@ export const TaskCard = ({
           </Dialog.Actions>
         </Dialog>
       </Content>
-    </>
+    </View>
   );
 };

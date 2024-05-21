@@ -13,6 +13,7 @@ export const Header = styled.View`
 export const Content = styled.View`
   flex: 1;
   padding-top: 10px;
+  min-height: 80px;
 `;
 
 export const TaskBodyContainer = styled.View`

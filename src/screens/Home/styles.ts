@@ -4,6 +4,7 @@ interface FilterButtonProps {
 }
 export const Container = styled.View`
   flex: 1;
+  display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `;
@@ -12,8 +13,8 @@ export const TaskCardContainer = styled.TouchableOpacity`
   align-self: "center";
   background-color: ${({ theme }) => theme.COLORS.CARD_COLOR};
   border-radius: 10px;
-  margin-bottom: 10px;
-  height: 130px;
+  display: flex;
+  position: relative;
 `;
 export const FilterContainer = styled.View`
   width: 90%;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Container,
   FilterButton,
@@ -14,7 +14,7 @@ import { FAB } from "@rneui/base";
 import { NewTaskBottomSheet } from "../../components/BottomSheet/NewTaskBottomSheet";
 import { useTodo } from "../../hooks/useTodo";
 import { formatDate } from "../../utils/formatDate";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { ITodo } from "../../types/todo.types";
 import { EditTaskBottomSheet } from "../../components/BottomSheet/EditTaskBottomSheet";
 
@@ -28,18 +28,18 @@ export function Home() {
     setSelectedTodo(todo);
     setEdit(true);
   };
-  const filteredTodos = () => {
+  const filteredTodos = useMemo(() => {
     const sortedTodos = [...todos].sort((todoA, todoB) => {
       if (filter === "done") {
         return todoA.done ? -1 : 1;
       }
       if (filter === "date") {
-        return todoA.createadAt < todoB.createadAt ? -1 : 1;
+        return todoA.createadAt > todoB.createadAt ? -1 : 1;
       }
       return 0;
     });
     return sortedTodos;
-  };
+  }, [todos, filter]);
   const toggleDoneFilter = () => {
     if (filter === "" || filter !== "done") {
       return setFilter("done");
@@ -52,6 +52,25 @@ export function Home() {
     }
     setFilter("");
   };
+  const renderItem = useCallback(
+    ({ item }: { item: ITodo }) => (
+      <TaskCardContainer
+        key={item.id}
+        onPress={() => handleEdit(item)}
+        activeOpacity={0.5}
+      >
+        <TaskCard
+          id={item.id}
+          title={item.title}
+          description={item.description}
+          subtitle={`${item.done ? "Concluído" : "Pendente"} - ${formatDate(
+            item.createadAt
+          )}`}
+        />
+      </TaskCardContainer>
+    ),
+    [handleEdit, formatDate]
+  );
   return (
     <>
       <Container>
@@ -66,25 +85,11 @@ export function Home() {
         </FilterContainer>
 
         <FlatList
-          data={filteredTodos()}
-          style={{ width: "87.25%" }}
+          data={filteredTodos}
+          style={{ width: "87.25%", display: "flex", flexDirection: "column" }}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TaskCardContainer
-              key={item.id}
-              onPress={() => handleEdit(item)}
-              activeOpacity={0.5}
-            >
-              <TaskCard
-                id={item.id}
-                title={item.title}
-                description={item.description}
-                subtitle={`${
-                  item.done ? "Concluído" : "Pendente"
-                } - ${formatDate(item.createadAt)}`}
-              />
-            </TaskCardContainer>
-          )}
+          ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+          renderItem={renderItem}
         />
         <NewTaskBottomSheet isVisible={isVisible} setIsVisible={setIsVisible} />
         {selectedTodo && (
