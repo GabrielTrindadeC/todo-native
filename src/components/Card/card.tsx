@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Content,
@@ -8,10 +8,10 @@ import {
   TaskBodyContainer,
   TaskSubtitle,
   Title,
-} from "./style";
-import { Dialog, Icon } from "@rneui/base";
-import { Text, TouchableOpacity, View } from "react-native";
-import { useTodo } from "../../hooks/useTodo";
+} from './style';
+import { Dialog, Icon } from '@rneui/base';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { useTodo } from '../../hooks/useTodo';
 
 interface ITaskCardProps {
   title: string;
@@ -33,7 +33,7 @@ export const TaskCard = ({
     setIsVisible(!isVisible);
   };
   const handleDelete = (id: string) => {
-    dispatch({ type: "remove-todo", payload: id });
+    dispatch({ type: 'remove-todo', payload: id });
   };
   return (
     <View
@@ -43,7 +43,7 @@ export const TaskCard = ({
       <Header>
         <Title>{title}</Title>
         <TouchableOpacity onPress={toggleDialog}>
-          <Icon color={"white"} name="trash" type="evilicon" />
+          <Icon color={'white'} name="trash" type="evilicon" />
         </TouchableOpacity>
       </Header>
       <Content>
@@ -54,7 +54,7 @@ export const TaskCard = ({
           <TaskSubtitle>{subtitle}</TaskSubtitle>
         </SubtitleWrapper>
         <Dialog isVisible={isVisible} onBackdropPress={toggleDialog}>
-          <Text style={{ color: "white", padding: 10 }}>
+          <Text style={{ color: 'white', padding: 10 }}>
             Tem Certeza que deseja deletar?
           </Text>
           <Dialog.Actions>

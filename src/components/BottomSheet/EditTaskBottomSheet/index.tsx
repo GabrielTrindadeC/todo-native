@@ -1,9 +1,9 @@
-import { BottomSheet, Button, Input, CheckBox } from "@rneui/base";
-import React, { useEffect, useState } from "react";
-import { View } from "react-native";
-import { ITodo } from "../../../types/todo.types";
-import { useTodo } from "../../../hooks/useTodo";
-import { Container } from "./style";
+import { BottomSheet, Button, Input, CheckBox } from '@rneui/base';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { ITodo } from '../../../types/todo.types';
+import { useTodo } from '../../../hooks/useTodo';
+import { Container } from './style';
 
 interface Props {
   isVisible: boolean;
@@ -39,7 +39,7 @@ export const EditTaskBottomSheet = ({
         id: selectedTodo.id,
         createadAt: new Date(),
       };
-      dispatch({ type: "att-todo", payload: data });
+      dispatch({ type: 'att-todo', payload: data });
       resetAndClose();
     }
   };

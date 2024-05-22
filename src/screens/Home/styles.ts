@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 interface FilterButtonProps {
   active: boolean;
 }
@@ -10,7 +10,7 @@ export const Container = styled.View`
 `;
 
 export const TaskCardContainer = styled.TouchableOpacity`
-  align-self: "center";
+  align-self: 'center';
   background-color: ${({ theme }) => theme.COLORS.CARD_COLOR};
   border-radius: 10px;
   display: flex;
@@ -29,7 +29,7 @@ export const FilterButton = styled.TouchableOpacity<FilterButtonProps>`
   border-radius: 10px;
   align-items: center;
   padding: 10px;
-  background-color: ${(props) => (props.active ? "#24a19c" : "#ebebeb")};
+  background-color: ${(props) => (props.active ? '#24a19c' : '#ebebeb')};
 `;
 export const FilterButtonText = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};

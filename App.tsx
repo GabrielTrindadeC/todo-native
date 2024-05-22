@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Home } from "./src/screens/Home";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./src/theme";
@@ -20,12 +20,21 @@ export default function App() {
     Barlow_500Medium,
     Barlow_600SemiBold,
   });
+  const [theme, setTheme] = useState<string>("dark");
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <TodoProvider>
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
           <StatusBar style="auto" />
-          {fontsLoaded ? <Home /> : <ActivityIndicator />}
+          {fontsLoaded ? (
+            <Home theme={theme} toggleTheme={toggleTheme} />
+          ) : (
+            <ActivityIndicator />
+          )}
         </ThemeProvider>
       </TodoProvider>
     </SafeAreaView>

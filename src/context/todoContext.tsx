@@ -4,27 +4,27 @@ import {
   ReactNode,
   useEffect,
   useReducer,
-} from "react";
-import { ITodo } from "../types/todo.types";
-import { todoService } from "../service/todoService";
+} from 'react';
+import { ITodo } from '../types/todo.types';
+import { todoService } from '../service/todoService';
 
 type Action =
-  | { type: "add-todo"; payload: ITodo }
-  | { type: "remove-todo"; payload: string }
-  | { type: "att-todo"; payload: ITodo }
-  | { type: "fetch-todos"; payload: ITodo[] };
+  | { type: 'add-todo'; payload: ITodo }
+  | { type: 'remove-todo'; payload: string }
+  | { type: 'att-todo'; payload: ITodo }
+  | { type: 'fetch-todos'; payload: ITodo[] };
 
 const todosReducer = (state: ITodo[], action: Action): ITodo[] => {
   switch (action.type) {
-    case "add-todo":
+    case 'add-todo':
       return [...state, action.payload];
-    case "remove-todo":
+    case 'remove-todo':
       return state.filter((todo) => todo.id !== action.payload);
-    case "att-todo":
+    case 'att-todo':
       return state.map((todo) =>
         todo.id === action.payload.id ? { ...todo, ...action.payload } : todo
       );
-    case "fetch-todos":
+    case 'fetch-todos':
       return action.payload;
     default:
       return state;
@@ -42,7 +42,7 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const fetchTodos = async () => {
       const storedTodos = await todoService.getTodos();
-      dispatch({ type: "fetch-todos", payload: storedTodos });
+      dispatch({ type: 'fetch-todos', payload: storedTodos });
     };
     fetchTodos();
   }, []);

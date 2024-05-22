@@ -9,7 +9,7 @@ import {
 } from "./styles";
 
 import { TaskCard } from "../../components/Card/card";
-import { FAB } from "@rneui/base";
+import { FAB, Switch } from "@rneui/base";
 
 import { NewTaskBottomSheet } from "../../components/BottomSheet/NewTaskBottomSheet";
 import { useTodo } from "../../hooks/useTodo";
@@ -18,7 +18,13 @@ import { FlatList, View } from "react-native";
 import { ITodo } from "../../types/todo.types";
 import { EditTaskBottomSheet } from "../../components/BottomSheet/EditTaskBottomSheet";
 
-export function Home() {
+export function Home({
+  toggleTheme,
+  theme,
+}: {
+  toggleTheme: () => void;
+  theme: string;
+}) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
   const { todos } = useTodo();
@@ -69,12 +75,30 @@ export function Home() {
         />
       </TaskCardContainer>
     ),
-    [handleEdit, formatDate]
+    [handleEdit]
   );
   return (
     <>
       <Container>
-        <Title>Tarefas</Title>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            width: "100%",
+          }}
+        >
+          <Title>Tarefas</Title>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Title style={{ fontSize: 15 }}>{`Tema: ${theme}`}</Title>
+            <Switch value={theme === "dark"} onValueChange={toggleTheme} />
+          </View>
+        </View>
+
         <FilterContainer>
           <FilterButton onPress={toggleDoneFilter} active={filter === "done"}>
             <FilterButtonText>Status</FilterButtonText>
