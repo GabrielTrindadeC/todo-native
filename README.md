@@ -37,7 +37,7 @@ Com o projeto clonado, dentro da pasta raiz do projeto, siga os seguintes passos
 1. Instalar as dependências: **`yarn install`**
 2. Iniciar o aplicativo: **`yarn start`**
 
-A forma mais fácil de rodar o projeto é instalando o [Expo Go](https://docs.expo.dev/get-started/set-up-your-environment/) no seu dispositivo móvel e escaneando o QR Code que vai aparecer no seu terminal:
+A forma mais fácil de rodar o projeto é instalando o [Expo Go](https://docs.expo.dev/get-started/set-up-your-environment/) no seu dispositivo móvel e escaneando o QR Code que vai aparecer no seu terminal(tanto o computador quanto o dispositivo móvel devem estar na mesma rede):
 ![QR Code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/8ea25491-277e-41f2-b4d0-681026102ca1)
 
 ## 💻 Emulador
