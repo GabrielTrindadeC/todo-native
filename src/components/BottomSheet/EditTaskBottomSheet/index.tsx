@@ -19,7 +19,7 @@ export const EditTaskBottomSheet = ({
   const [title, setTitle] = useState(selectedTodo?.title);
   const [description, setDescription] = useState(selectedTodo?.description);
   const [done, setDone] = useState(selectedTodo?.done);
-  const { dispatch } = useTodo();
+  const { dispatch, showToast } = useTodo();
   useEffect(() => {
     setTitle(selectedTodo?.title);
     setDescription(selectedTodo?.description);
@@ -39,6 +39,7 @@ export const EditTaskBottomSheet = ({
         id: selectedTodo.id,
         createadAt: selectedTodo.createadAt,
       };
+      showToast("Tarefa atualizada");
       dispatch({ type: "att-todo", payload: data });
       resetAndClose();
     }

@@ -1,22 +1,22 @@
-import { BottomSheet, Button, Input } from '@rneui/base';
-import React, { Dispatch, SetStateAction, useState } from 'react';
-import { View } from 'react-native';
-import { ITodo } from '../../../types/todo.types';
-import uuid from 'react-native-uuid';
-import { useTodo } from '../../../hooks/useTodo';
-import { Container } from './style';
+import { BottomSheet, Button, Input } from "@rneui/base";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import { View } from "react-native";
+import { ITodo } from "../../../types/todo.types";
+import uuid from "react-native-uuid";
+import { useTodo } from "../../../hooks/useTodo";
+import { Container } from "./style";
 interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 export const NewTaskBottomSheet = ({ isVisible, setIsVisible }: Props) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const { dispatch } = useTodo();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const { dispatch, showToast } = useTodo();
   const resetAndClose = () => {
     setIsVisible(false);
-    setTitle('');
-    setDescription('');
+    setTitle("");
+    setDescription("");
   };
 
   const handleSubmit = () => {
@@ -27,13 +27,13 @@ export const NewTaskBottomSheet = ({ isVisible, setIsVisible }: Props) => {
       id: uuid.v4() as string,
       createadAt: new Date(),
     };
-
-    dispatch({ type: 'add-todo', payload: data });
+    showToast("Tarefa Criada");
+    dispatch({ type: "add-todo", payload: data });
     resetAndClose();
   };
   return (
     <BottomSheet isVisible={isVisible} onBackdropPress={resetAndClose}>
-      <Container style={{ padding: 10, backgroundColor: 'white' }}>
+      <Container style={{ padding: 10, backgroundColor: "white" }}>
         <Input
           multiline
           label="Titulo"

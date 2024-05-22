@@ -28,13 +28,14 @@ export const TaskCard = ({
   id,
   isDone,
 }: ITaskCardProps) => {
-  const { dispatch } = useTodo();
+  const { dispatch, showToast } = useTodo();
   const [height, setHeight] = React.useState<number | null>(null);
   const [isVisible, setIsVisible] = React.useState(false);
   const toggleDialog = () => {
     setIsVisible(!isVisible);
   };
   const handleDelete = (id: string) => {
+    showToast("Tarefa deletada");
     dispatch({ type: "remove-todo", payload: id });
   };
   return (
