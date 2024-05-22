@@ -79,7 +79,7 @@ Caso você queira rodar o aplicativo com emulador localmente, vai ser necessári
 
 - Interface para serviço: Optei por utilizar uma interface para o serviço por ser uma boa prática de desacoplamento. Assim caso seja necessário trocar o tipo do serviço, seja passando a usar REST, Firebase ou qualquer outro tipo de serviço, bastaria implementar a interface e alterar o caller da função sem necessidade de conhecer o serviço atual para desenvolver um novo.
 ![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/596207fd-1b95-4cde-87db-cbdc1b5b066b)
-- ContextApi: Evitar propdrilling na aplicação e poder disponibilizar os estados de forma global]
+- ContextApi: Evitar propdrilling na aplicação e poder disponibilizar os estados de forma global
 - customHook: Hook nomeado de useTodos que abstrai a implementação do context, dessa forma facilito a utilização do meu Provider e desacoplo a logica da tarefas dos meus componentes.
 ![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/2dcb35e7-ec51-47de-9a44-1e4f24ea9636)
 
