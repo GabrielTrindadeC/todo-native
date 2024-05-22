@@ -43,7 +43,7 @@ export function Home({
         return todoA.done ? -1 : 1;
       }
       if (filter === "date") {
-        return todoA.createadAt > todoB.createadAt ? -1 : 1;
+        return todoA.createadAt < todoB.createadAt ? -1 : 1;
       }
       return 0;
     });
