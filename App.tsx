@@ -20,7 +20,7 @@ export default function App() {
     Barlow_500Medium,
     Barlow_600SemiBold,
   });
-  const [theme, setTheme] = useState<string>("dark");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");

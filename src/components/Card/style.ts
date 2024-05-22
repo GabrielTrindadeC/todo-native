@@ -1,9 +1,9 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
-export const Header = styled.View`
+export const Header = styled.View<{ isDone: boolean }>`
   height: 40px;
   padding: 10px;
-  background-color: #24a19c;
+  background-color: ${(props) => (props.isDone ? "#24a19c" : "#FE9900")};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   flex-direction: row;

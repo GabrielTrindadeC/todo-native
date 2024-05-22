@@ -69,6 +69,7 @@ export function Home({
         activeOpacity={0.5}
       >
         <TaskCard
+          isDone={item.done}
           id={item.id}
           title={item.title}
           description={item.description}
@@ -110,7 +111,9 @@ export function Home({
             <FilterButtonText>Data</FilterButtonText>
           </FilterButton>
         </FilterContainer>
-
+        {filteredTodos.length === 0 && (
+          <Title>Nenhuma tarefa encontrada...</Title>
+        )}
         <FlatList
           data={filteredTodos}
           style={{ width: "87.25%", display: "flex", flexDirection: "column" }}
