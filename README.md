@@ -84,6 +84,7 @@ Durante o desenvolvimento, identifiquei algumas áreas com espaço para melhoria
 - Possibilidade de agrupar tarefas em categorias ou pastas
 - Internacionalização da aplicação
 - Testes unitários e de integração
+- Versão iOS
 
 # 👏 Créditos
 Para desenvolver, usei um layout da comunidade como inspiração:
