@@ -86,6 +86,7 @@ Caso você queira rodar o aplicativo com emulador localmente, vai ser necessári
 - **TypeScript**: Mantém uma tipagem consistente e segura da aplicação e um melhor uso do IntelliSense do VSCode.
 - **Expo**: Facilita a criação de aplicativos React Native, abstraindo algumas questões de desenvolvimento em React Native puro e facilitando o build e deploy. Atualmente recomendado pela própria equipe do [React Native](https://reactnative.dev/docs/environment-setup) para criação de novas aplicações.
 - **React Native Elements**: Um Design System para React Native, usado para manter a estilização dos componentes consistente.
+  
 Decidi utilizar do meu conhecimento técnico para demonstrar até onde vai minhas habilidades de tal forma que o app fosse escalavel caso necessário. Reconheço porem que para solucionar o problema proposto, a aplicação poderia ter uma arquitetura mais simples 
 # 🚧 Melhorias
 Durante o desenvolvimento, identifiquei algumas áreas com espaço para melhorias:
