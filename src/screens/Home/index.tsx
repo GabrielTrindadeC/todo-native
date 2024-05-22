@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import {
   Container,
   FilterButton,
@@ -30,10 +30,13 @@ export function Home({
   const { todos } = useTodo();
   const [selectedTodo, setSelectedTodo] = useState<ITodo>({} as ITodo);
   const [filter, setFilter] = useState("");
-  const handleEdit = (todo: ITodo) => {
-    setSelectedTodo(todo);
-    setEdit(true);
-  };
+  const handleEdit = useCallback(
+    (todo: ITodo) => {
+      setSelectedTodo(todo);
+      setEdit(true);
+    },
+    [setSelectedTodo, setEdit]
+  );
   const filteredTodos = useMemo(() => {
     const sortedTodos = [...todos].sort((todoA, todoB) => {
       if (filter === "done") {
