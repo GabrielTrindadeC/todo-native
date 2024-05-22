@@ -22,7 +22,7 @@
 ## 📦 Requisitos
 - Node v20.13.1
 - Yarn v1.22.21
-- Windows, Linux ou iOS (WSL pode encontrar problemas)
+- Windows, Linux ou MacOS (WSL pode encontrar problemas)
 
 Para rodar o projeto, primeiro clone este repositório:
 
