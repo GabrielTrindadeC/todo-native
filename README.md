@@ -26,9 +26,9 @@
 
 Para rodar o projeto, primeiro clone este repositório:
 
-`
+**`
 git clone https://github.com/GabrielTrindadeC/todo-native.git
-`
+`**
 
 
 ## 🛠️ Caminho Fácil
@@ -49,23 +49,23 @@ Caso você queira rodar o aplicativo com emulador localmente, vai ser necessári
 3. Pressione a tecla "A", no terminal, para rodar o projeto no emulador Android
 
 # ✨ Funcionalidades
-- Criar Tarefas
+- **Criar Tarefas**
   
   ![Criar](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/18d1e815-3601-489e-8c65-c7aa59b9ba8f)
   
-- Deletar Tarefas
+- **Deletar Tarefas**
   
   ![Deletar](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/664a6abd-cda2-42c8-a426-ce6ac959d961)
   
-- Editar Tarefas
+- **Editar Tarefas**
   
   ![Editar](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/7dfabe05-d465-4766-867a-6c8dd835f710)
   
-- Marcar/Desmarcar Tarefa como Concluída, filtrar tarefas concluídas ou por data de criação
+- **Marcar/Desmarcar Tarefa como Concluída, filtrar tarefas concluídas ou por data de criação**
   
   ![Marcar](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/01171534-6b41-45f2-b3bc-411f723ae706)
   
-- Tema Claro/Escuro
+- **Tema Claro/Escuro**
   
   ![Tema](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/01fb05da-a812-494e-b7e8-12bd11dc9835)
 
@@ -77,10 +77,10 @@ Caso você queira rodar o aplicativo com emulador localmente, vai ser necessári
 
   ![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/c9569cd9-894d-41b2-a0a0-84201b6950c4)
 
-- Interface para serviço: Optei por utilizar uma interface para o serviço por ser uma boa prática de desacoplamento. Assim caso seja necessário trocar o tipo do serviço, seja passando a usar REST, Firebase ou qualquer outro tipo de serviço, bastaria implementar a interface e alterar o caller da função sem necessidade de conhecer o serviço atual para desenvolver um novo.
+- **Interface para serviço**: Optei por utilizar uma interface para o serviço por ser uma boa prática de desacoplamento. Assim caso seja necessário trocar o tipo do serviço, seja passando a usar REST, Firebase ou qualquer outro tipo de serviço, bastaria implementar a interface e alterar o caller da função sem necessidade de conhecer o serviço atual para desenvolver um novo.
 ![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/596207fd-1b95-4cde-87db-cbdc1b5b066b)
-- ContextApi: Evitar propdrilling na aplicação e poder disponibilizar os estados de forma global
-- customHook: Hook nomeado de useTodos que abstrai a implementação do context, dessa forma facilito a utilização do meu Provider e desacoplo a logica da tarefas dos meus componentes.
+- **ContextApi**: Evitar propdrilling na aplicação e poder disponibilizar os estados de forma global
+- **customHook**: Hook nomeado de useTodos que abstrai a implementação do context, dessa forma facilito a utilização do meu Provider e desacoplo a logica da tarefas dos meus componentes.
 ![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/2dcb35e7-ec51-47de-9a44-1e4f24ea9636)
 
 - **TypeScript**: Mantém uma tipagem consistente e segura da aplicação e um melhor uso do IntelliSense do VSCode.
