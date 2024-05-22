@@ -74,10 +74,19 @@ Caso você queira rodar o aplicativo com emulador localmente, vai ser necessári
 
 - **useReducer**: Utilizado em estados complexos (como tarefas), pois é mais otimizado para estados que contêm vários sub-valores, evitando re-renderizações desnecessárias.
 - **useCallback e useMemo**: Ambos são capazes de memoizar estados/funções, evitando re-renderizações e recálculo dos valores. Exemplo: filtros das tarefas - caso as tarefas não sejam alteradas, ele não recalcula o filtro, apenas utiliza o estado memoizado do array de tarefas.
+
+  ![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/c9569cd9-894d-41b2-a0a0-84201b6950c4)
+
+- Interface para serviço: Optei por utilizar uma interface para o serviço por ser uma boa prática de desacoplamento. Assim caso seja necessário trocar o tipo do serviço, seja passando a usar REST, Firebase ou qualquer outro tipo de serviço, bastaria implementar a interface e alterar o caller da função sem necessidade de conhecer o serviço atual para desenvolver um novo.
+![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/596207fd-1b95-4cde-87db-cbdc1b5b066b)
+- ContextApi: Evitar propdrilling na aplicação e poder disponibilizar os estados de forma global]
+- customHook: Hook nomeado de useTodos que abstrai a implementação do context, dessa forma facilito a utilização do meu Provider e desacoplo a logica da tarefas dos meus componentes.
+![code](https://github.com/GabrielTrindadeC/todo-native/assets/76929097/2dcb35e7-ec51-47de-9a44-1e4f24ea9636)
+
 - **TypeScript**: Mantém uma tipagem consistente e segura da aplicação e um melhor uso do IntelliSense do VSCode.
 - **Expo**: Facilita a criação de aplicativos React Native, abstraindo algumas questões de desenvolvimento em React Native puro e facilitando o build e deploy. Atualmente recomendado pela própria equipe do [React Native](https://reactnative.dev/docs/environment-setup) para criação de novas aplicações.
 - **React Native Elements**: Um Design System para React Native, usado para manter a estilização dos componentes consistente.
-
+Decidi utilizar do meu conhecimento técnico para demonstrar até onde vai minhas habilidades de tal forma que o app fosse escalavel caso necessário. Reconheço porem que para solucionar o problema proposto, a aplicação poderia ter uma arquitetura mais simples 
 # 🚧 Melhorias
 Durante o desenvolvimento, identifiquei algumas áreas com espaço para melhorias:
 - Tags de prioridade nas tarefas
